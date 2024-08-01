@@ -10,8 +10,8 @@ env:
   AWS_REGION: "us-east-1"  # Change to reflect your AWS Region
 
 permissions:
-    id-token: write   # This is required for requesting the JWT
-    contents: read    # This is required for actions/checkout
+  id-token: write   # Required for requesting the JWT
+  contents: read    # Required for actions/checkout
 
 jobs:
   AssumeRoleAndCallIdentity:
@@ -19,14 +19,19 @@ jobs:
     steps:
       - name: Git clone the repository
         uses: actions/checkout@v3
-      - name: configure aws credentials
+        
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1.7.0
         with:
           role-to-assume: arn:aws:iam::339713072790:role/GithubActions-CodeDeploy
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          aws-region: us-east-1
+          aws-region: ${{ env.AWS_REGION }}
+          
       - name: Get AWS Identity
-        run: aws sts get-caller-identity
+        run: |
+          identity=$(aws sts get-caller-identity)
+          echo "AWS Identity: $identity"
+          
       - name: Create CodeDeploy Deployment
         run: |
           aws deploy create-deployment \
