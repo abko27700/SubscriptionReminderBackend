@@ -1,0 +1,9 @@
+boto3
+botocore
+Flask
+marshmallow
+pyjwt
+werkzeug
+jsonschema
+flask-cors
+python-dotenv 
