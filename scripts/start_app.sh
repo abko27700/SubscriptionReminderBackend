@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Define the source and destination paths
-SOURCE_PATH="/Users/abko/Desktop/secrets/.env"
+# SOURCE_PATH="/Users/abko/Desktop/secrets/.env"
+SOURCE_PATH="/home/ec2-user/secrets/subs/.env"
 DESTINATION_PATH=".env"
 LOG_DIR="./logs"
 LOG_FILE="$LOG_DIR/deployment.log"
