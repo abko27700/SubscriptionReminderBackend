@@ -5,6 +5,6 @@ files:
     destination: /home/ec2-user/projectDaria/SubscriptionReminderBackend
 hooks:
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: app/scripts/start.sh
       timeout: 300
       runas: root
