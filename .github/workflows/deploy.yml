@@ -11,7 +11,7 @@ env:
 
 permissions:
   id-token: write   # Required for requesting the JWT
-  contents: read    # Required for actions/checkout
+  contents: read    # Required for actions/checkout 
 
 jobs:
   AssumeRoleAndCallIdentity:
