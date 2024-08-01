@@ -2,9 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ec2-user/projectDaria/SubscriptionReminderBackend
+    destination: /home/ec2-user/projectDaria/subsBackend
 hooks:
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-    - location: start_app.sh
+    - location: scripts/start_app.sh
       timeout: 300
       runas: root
